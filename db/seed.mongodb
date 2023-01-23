@@ -1,0 +1,10 @@
+
+use('bytenoir_dev')
+
+db.blogs.insertMany([
+    {title: 'Blog 1', content: 'Content 1'},
+    {title: 'Blog 2', content: 'Content 2'},
+    {title: 'Blog 3', content: 'Content 3'},
+    {title: 'Blog 4', content: 'Content 4'},
+    {title: 'Blog 5', content: 'Content 5'},
+])
