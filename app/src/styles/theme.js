@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/system";
-import { red } from "@mui/material/colors";
 
 const theme = createTheme({
     palette: {
@@ -10,12 +9,17 @@ const theme = createTheme({
         secondary: {
             main: '#CBF3F0',
             darker: '#2EC4B6',
-            lightGrey: '#dee2e6'
         },
         text: {
             main: '#FFFFFF',
             secondary: '#0f4c5c',
             orange: '#FF9F1C',
+        },
+        grays: {
+            light: '#e9ecef',
+            bitDarker: '#dee2e6',
+            darker: '#ced4da',
+            dark: '#6c757d',
         }
     },
 });

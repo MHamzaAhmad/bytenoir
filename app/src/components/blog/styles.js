@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => {
         root: {
             backgroundColor: `${theme.palette.text.main} !important`,
             minHeight: "100vh",
-            width: "100%",
             position: "relative",
             padding: "2rem",
         },

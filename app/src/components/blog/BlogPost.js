@@ -6,7 +6,7 @@ import useStyles from "./styles";
 const BlogPost = (props) => {
     const styles = useStyles();
     return (
-        <Box component="section" id="blog-post" ref={props.reference} className={styles.root}>
+        <Box component="section" id="blog-post" className={styles.root}>
             <OrangeHeading> {props.blog.title} </OrangeHeading>
             <BlogContent content={props.blog.body}/>
         </Box>

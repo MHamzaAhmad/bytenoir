@@ -1,5 +1,4 @@
 import CustomButton from "../widgets/button/CustomButton";
-import useStyles from "./styles";
 
 const LatestBlogBtn = (props) => {
     const handleClick = (props) => {
@@ -7,7 +6,7 @@ const LatestBlogBtn = (props) => {
     }
     return (
         <CustomButton
-        ref={props.reference}
+        reference={props.reference}
         onClick={() => handleClick(props)}
         >
             Check out latest Blog

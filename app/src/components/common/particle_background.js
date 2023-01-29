@@ -5,7 +5,6 @@ import { Box } from "@mui/joy";
 
 const ParticleBackground = () => {
     const particlesInit = useCallback(async engine => {
-        console.log(engine);
         await loadFull(engine);
     }, []);
 

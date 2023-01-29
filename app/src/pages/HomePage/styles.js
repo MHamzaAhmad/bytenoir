@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => {
             justifyContent: "space-between",
             height: "50vh",
             margin: "0 0 10vh 0"
+        },
+        blogSection: {
+            position: "relative",
+            backgroundColor: `${theme.palette.text.main} !important`,
+            padding: "2rem",
         }
     }
 });

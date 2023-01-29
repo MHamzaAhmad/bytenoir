@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => {
         root: {
             backgroundColor: `${theme.palette.primary.main} !important`,
             borderRadius: "0.2rem !important",
+            marginRight: "0.5rem !important",
             '&:hover': {
                 background: `none !important`,
                 border: `1px solid ${theme.palette.primary.main}`,
