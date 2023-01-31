@@ -36,6 +36,9 @@ export const BlogsSlice = createSlice({
         setAdminBlog: (state, action) => {
             state.adminBlog = action.payload;
         },
+        setLatestBlog: (state, action) => {
+            state.latestBlog = action.payload;
+        },
         clearBlogs: (state, action) => {
             if (action.payload === 'publish') {
                 state.blogs = [];
@@ -67,6 +70,15 @@ export const useBlogsActions = () => {
         dispatch(BlogsSlice.actions.setAdminBlog(blog));
     }
 
+    const setLatestBlog = (blog) => {
+        dispatch(BlogsSlice.actions.setLatestBlog(blog));
+    }
+
+    const getLatestBlog = async () => {
+        const res = await blogService.getLatestBlog();
+        dispatch(BlogsSlice.actions.setLatestBlog(res.data[0]));
+    }
+
     const createBlog = async (blog) => {
         const res = await blogService.postBlog(blog);
         dispatch(BlogsSlice.actions.addBlog(res.data));
@@ -96,6 +108,8 @@ export const useBlogsActions = () => {
         createBlog,
         updateBlog,
         searchBlogs,
+        getLatestBlog,
+        setLatestBlog,
     }
 }
 

@@ -1,32 +1,30 @@
 import { Box, Grid } from '@mui/joy';
 import useStyles from './styles';
-import { Provider } from 'react-redux';
 import AllBlogsList from '../../components/lists/AllBlogs/AllBlogs';
 import DraftBlogsList from '../../components/lists/DraftBlogs/DraftBlogs';
-import store from '../../store/store'
 import Editor from '../../components/editor/Editor';
+import { useBlogs } from '../../store/hooks';
 
 
 const Admin = () => {
     const styles = useStyles();
+    const {setAdminBlog} = useBlogs();
 
 
     return (
-        <Provider store={store}>
-          <Box className={styles.root}>
-              <Grid container spacing={2}>
-              <Grid md={2} xs={12}>
-                  <DraftBlogsList />
-                </Grid>
-                <Grid md={8} xs={12}>
-                  <Editor />
-                </Grid>
-                <Grid md={2} xs={12}>
-                  <AllBlogsList />
-                </Grid>
+        <Box className={styles.root}>
+            <Grid container spacing={2}>
+            <Grid md={2} xs={12}>
+                <DraftBlogsList onSelect={setAdminBlog}/>
               </Grid>
-          </Box>
-        </Provider>
+              <Grid md={8} xs={12}>
+                <Editor />
+              </Grid>
+              <Grid md={2} xs={12}>
+                <AllBlogsList onSelect={setAdminBlog} />
+              </Grid>
+            </Grid>
+        </Box>
     );
 }
 export default Admin;

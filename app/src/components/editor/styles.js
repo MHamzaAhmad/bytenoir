@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => {
             border: `1px solid ${theme.palette.primary.main} !important`,
             borderRadius: '0.2rem',
             fontSize: '1.2rem',
-            color: theme.palette.secondary.lightGrey,
+            color: theme.palette.grays.dark,
         },
         editor: {
             display: 'block',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => {
             },
             '& .ql-container': {
                 height: '60vh',
-                backgroundColor: theme.palette.secondary.lightGrey,
+                backgroundColor: theme.palette.grays.light,
                 borderBottomLeftRadius: '0.4rem',
                 borderBottomRightRadius: '0.4rem',
             },

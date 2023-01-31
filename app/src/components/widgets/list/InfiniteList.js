@@ -1,30 +1,30 @@
 import { Box, Input } from '@mui/joy';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useBlogs } from '../../../store/hooks';
 import ListItem from '../listItem/ListItem';
 import Loader from '../loader/Loader';
 import useStyles from './styles';
-import _ from 'lodash';
 import { pageLimit } from '../../../configs/constants';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 const InfiniteList = (props) => {
     const styles = useStyles();
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
-    const {searchBlogs, getBlogs, getDraftBlogs} = useBlogs();
+    const {searchBlogs} = useBlogs();
 
-    const debounceSearch = _.debounce((e) => {
+    const debounceSearch = useCallback(_.debounce((e) => {
         searchBlogs(e.target.value, page, pageLimit, props.type);
-    }, 1500);
+    }, 700), []);
 
-    useEffect(() => {
-        if(search !== '') debounceSearch(search);
-    }, [search]);
+    // useCallback(() => {
+    //     if(search !== '') debounceSearch(search);
+    // }, [debouncedSearch]);
 
     const fetchMore = async () => {
-        if (props.type === 'publish') getBlogs(page, pageLimit);
-        else if (props.type === 'draft') getDraftBlogs(page, pageLimit);
+        searchBlogs(search, page, pageLimit, props.type);
         setPage(page + 1);
     };
 
@@ -34,7 +34,7 @@ const InfiniteList = (props) => {
                 <Input
                 className={styles.searchBar}
                 placeholder='Search the title'
-                onChange={setSearch}
+                onChange={debounceSearch}
                 />
             </Box>
             <Box id="list-container" className={styles.container}>
@@ -46,11 +46,15 @@ const InfiniteList = (props) => {
                 loader={<Loader />}
                 endMessage={<p>That's all folks</p>}
                 >
-                {props.items.map((item, index) => <ListItem key={index} item={item}/>)}
+                {props.items.map((item, index) => <ListItem key={index} item={item} onSelect={props.onSelect}/>)}
                 </InfiniteScroll>
             </Box>
         </Box>
     );
+}
+
+InfiniteList.propsTypes = {
+    onSelect: PropTypes.func.required,
 }
 
 export default InfiniteList

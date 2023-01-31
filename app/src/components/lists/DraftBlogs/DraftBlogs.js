@@ -3,7 +3,7 @@ import { pageLimit } from '../../../configs/constants';
 import { useBlogs } from '../../../store/hooks';
 import InfiniteList from '../../widgets/list/InfiniteList';
 
-const DraftBlogsList = () => {
+const DraftBlogsList = (props) => {
     const { draftBlogs, getDraftBlogs, hasMoreDraft} = useBlogs();
     const [page, setPage] = useState(1)
 
@@ -18,6 +18,7 @@ const DraftBlogsList = () => {
 
     return (
         <InfiniteList
+            onSelect={props.onSelect}
             items={draftBlogs}
             next={fetchBlogs}
             hasMore={hasMoreDraft}
