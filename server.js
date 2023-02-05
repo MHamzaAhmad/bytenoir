@@ -3,12 +3,14 @@ const dbConnect = require("./db/connection")
 
 const app = express()
 const cors = require("cors")
+const { default: mongoose } = require("mongoose")
 app.use(cors())
 app.use(express.json())
 app.use(require('pino-http')())
 
 //initializers
 require("dotenv").config();
+mongoose.set('strictQuery', false);
 dbConnect();
 
 //apis

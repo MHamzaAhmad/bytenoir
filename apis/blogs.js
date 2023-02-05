@@ -14,6 +14,20 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/blog/:id", async (req, res) => {
+    try {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return res.status(404).send("Blog not found");
+        const blog = await Blog.findById(req.params.id);
+        if (blog){
+            res.json(blog);
+        } else {
+            res.status(404).send("Blog not found");
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 router.get('/draft', async (req, res) => {
     try {
         const page = req.query.page;
@@ -55,10 +69,14 @@ router.patch('/', async (req, res) => {
     }
 })
 
-router.get("/latest", async (req, res) => {
+router.get('/latest', async (req, res) => {
     try {
         const blog = await Blog.find({status: 'publish'}).sort({ createdAt: -1 }).limit(1);
-        res.json(blog);
+        if (blog){
+            res.json(blog);
+        }else {
+            res.status(404).send("Blog not found");
+        }
     } catch (error) {
         console.error(error);
     }

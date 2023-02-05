@@ -13,6 +13,10 @@ class BlogService {
         return this.api.get(`/blogs?page=${page}&limit=${limit}`);
     }
 
+    getBlog(id) {
+        return this.api.get(`/blogs/blog/${id}`);
+    }
+
     getDraftBlogs(page, limit) {
     return this.api.get(`/blogs/draft?page=${page}&limit=${limit}`)
     }

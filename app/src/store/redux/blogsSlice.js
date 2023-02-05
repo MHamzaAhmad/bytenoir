@@ -60,6 +60,11 @@ export const useBlogsActions = () => {
         dispatch(BlogsSlice.actions.setHasMore(res.data.hasMore));
     }
 
+    const getBlog = async (id) => {
+        const res = await blogService.getBlog(id);
+        return res.data;
+    }
+
     const getDraftBlogs = async (page, limit) => {
         const res = await blogService.getDraftBlogs(page, limit);
         dispatch(BlogsSlice.actions.setDraftBlogs([...res.data.blogs]));
@@ -110,6 +115,7 @@ export const useBlogsActions = () => {
         searchBlogs,
         getLatestBlog,
         setLatestBlog,
+        getBlog,
     }
 }
 
