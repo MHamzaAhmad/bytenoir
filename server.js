@@ -6,7 +6,7 @@ const cors = require("cors")
 const { default: mongoose } = require("mongoose")
 app.use(cors())
 app.use(express.json())
-app.use(require('pino-http')())
+app.use(require('morgan')('short'))
 
 //initializers
 require("dotenv").config();

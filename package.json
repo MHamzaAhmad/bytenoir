@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix app",
+    "client": "npm run build --prefix bytenoir-client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node db/seed.js",
     "i": "yarn install && cd app && yarn install",
@@ -20,8 +20,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.3",
-    "nodemon": "^2.0.20",
-    "pino": "^8.8.0",
-    "pino-http": "^8.3.1"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
   }
 }
