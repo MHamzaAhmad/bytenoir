@@ -5,7 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.11.0",
+    "@mui/icons-material": "^5.11.9",
     "@mui/joy": "^5.0.0-alpha.63",
     "@mui/material": "^5.11.5",
     "@mui/styles": "^5.11.2",
@@ -20,6 +20,7 @@
     "babel-register": "^6.26.0",
     "loadash": "^1.0.0",
     "moment": "^2.29.4",
+    "party-js": "^2.2.0",
     "react": "^18.2.0",
     "react-autosave": "^0.4.2",
     "react-dom": "^18.2.0",

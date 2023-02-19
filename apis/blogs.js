@@ -88,7 +88,7 @@ router.get('/search', async (req, res) => {
         const limit = req.query.limit;
         const blogs = await Blog.find({status: req.query.status, title: {$regex: req.query.query, $options: 'i'}}).skip((page - 1) * limit).limit(limit);
         res.json({blogs: blogs, hasMore: blogs.length < limit ? false : true});
-    } catch (error) {
+} catch (error) {
         console.error(error);
     }
 });

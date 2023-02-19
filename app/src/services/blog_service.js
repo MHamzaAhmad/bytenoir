@@ -1,8 +1,8 @@
-import Api from '../api/api_client';
+import api from '../api/api_client';
 
 class BlogService {
     constructor() {
-        this.api = new Api();
+        this.api = api
     }
 
     getLatestBlog() {

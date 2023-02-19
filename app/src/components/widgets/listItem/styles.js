@@ -1,21 +1,52 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => {
-    return {
-        root: {
-            border: `1px solid ${theme.palette.primary.main}`,
-            borderRadius: '0.1rem',
-            padding: '0.8rem',
-            width: '100%',
-            backgroundColor: theme.palette.grays.light,
-            margin: '0.1rem 0',
-            cursor: 'pointer',
-            '& .JoyTypography-root': {
-                fontSize: '0.8rem',
-            }
+  return {
+    container: {
+      "& .MuiIconButton-root": {
+        display: "none !important",
+        backgroundColor: `${theme.palette.primary.main} !important`,
+        borderRadius: "50%",
+        color: `${theme.palette.text.main} !important`,
+      },
+      "&:hover": {
+        transform: "scale(1.2)",
+        transition: "transform 0.1s ease-in-out",
+        "& .MuiIconButton-root": {
+          display: "inline-block !important",
+          position: "absolute",
+          top: "0.25rem",
+          transform: "translateX(-2.8rem)",
         },
-
-    }
+        "& p": {
+          overflow: "visible !important",
+          whiteSpace: "normal !important",
+        },
+      },
+    },
+    buttonStack: {
+      width: "100%",
+    },
+    text: {
+      whiteSpace: "nowrap",
+      textOverflow: "ellipsis",
+      overflow: "hidden !important",
+    },
+    blogTile: {
+      cursor: "pointer",
+      border: `1px solid ${theme.palette.primary.main}`,
+      borderRadius: "0.1rem",
+      padding: "0.6rem",
+      height: "2.7rem",
+      backgroundColor: theme.palette.grays.light,
+      margin: "0.1rem 0",
+      width: "100%",
+      overflow: "visible",
+      "& .JoyTypography-root": {
+        fontSize: "0.8rem",
+      },
+    },
+  };
 });
 
 export default useStyles;
