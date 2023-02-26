@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => {
     container: {
       padding: "0.4rem 0.7rem 0.7rem 0.7rem",
       height: "80vh",
-      display: "flex",
-      flexDirection: "column",
+      overflow: "auto",
       "& .infinite-scroll-component__outerdiv": {
         "& .infinite-scroll-component": {
           overflow: "visible !important",

@@ -8,8 +8,7 @@ const useStyles = makeStyles((theme) => {
             alignItems: "center",
             alignContent: "space-between",
             justifyContent: "space-between",
-            height: "50vh",
-            margin: "0 0 10vh 0"
+            height: "90vh",
         },
         blogSection: {
             position: "relative",

@@ -10,14 +10,8 @@ const useStyles = makeStyles((theme) => {
         color: `${theme.palette.text.main} !important`,
       },
       "&:hover": {
-        transform: "scale(1.2)",
+        transform: "scale(1.1)",
         transition: "transform 0.1s ease-in-out",
-        "& .MuiIconButton-root": {
-          display: "inline-block !important",
-          position: "absolute",
-          top: "0.25rem",
-          transform: "translateX(-2.8rem)",
-        },
         "& p": {
           overflow: "visible !important",
           whiteSpace: "normal !important",
